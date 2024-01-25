@@ -1,0 +1,75 @@
+﻿<Window x:Class="VegetablesAndFruits.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:VegetablesAndFruits"
+        mc:Ignorable="d"
+        Title="VegetablesAndFruits" Height="500" Width="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Row="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <StackPanel Grid.Row="0" Orientation="Horizontal">
+                <Button Content="Подключиться" Height="40" Width="130"
+                        HorizontalAlignment="Left" VerticalAlignment="Center"
+                        Margin="10" Background=" #6495ED" FontSize="15" Click="button_connect"/>
+                <Button Content="Отключиться" Height="40" Width="130" 
+                        HorizontalAlignment="Left" VerticalAlignment="Center"
+                        Margin="10" Background=" #B8B799" FontSize="15" Click="button_disconnect"/>
+            </StackPanel>
+            <TextBox Grid.Column="1" x:Name="text_block_DB" FontSize="15" TextAlignment="Center" Height="40" Width="450"/>
+        </Grid>
+
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="300"/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+
+            <GroupBox Grid.Row="1" Grid.Column="0">
+                <StackPanel>
+                    <RadioButton Content="Вся таблица" Checked="whole_table"/>
+                    <RadioButton Content="Названия овощей и фруктов" Checked="names_products"/>
+                    <RadioButton Content="Все цвета овощей и фруктов" Checked="colours_products"/>
+                    <RadioButton Content="Максимальная калорийность" Checked="max_calorie"/>
+                    <RadioButton Content="Минимальная калорийность" Checked="min_calorie"/>
+                    <RadioButton Content="Средняя калорийность" Checked="average_calorie"/>
+                </StackPanel>
+            </GroupBox>
+
+            <GroupBox Grid.Row="1" Grid.Column="1">
+                <StackPanel Grid.Row="1" Grid.Column="1">
+                    <RadioButton Content="Количество овощей" Checked="number_of_vegetables"/>
+                    <RadioButton Content="Количество фруктов" Checked="number_of_fruits"/>
+                    <StackPanel Orientation="Horizontal">
+                        <RadioButton Content="Кол-во овощей и фруктов заданного цвета"/>
+                        <TextBox Width="150" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="10 0 0 0" x:Name="colour_box"/>
+                    </StackPanel>
+                    <RadioButton Content="Кол-во овощей фруктов каждого цвета"/>
+                    <RadioButton Content="Овощи и фрукты с кал. ниже указанной"/>
+                    <TextBox Width="100" HorizontalAlignment="Left" Margin="20 2" x:Name="low_calorie_box"/>
+                    <RadioButton Content="Овощи и фрукты с кал. выше указанной"/>
+                    <TextBox Width="100" HorizontalAlignment="Left" Margin="20 2" x:Name="high_calorie_box"/>
+                    <RadioButton Content="Овощи и фрукты с кал. в указанном диапазоне"/>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="От" Margin="19 2 0 0" x:Name="calorie_ot_box"/>
+                        <TextBox Width="50" HorizontalAlignment="Left" Margin="5 2"/>
+                        <TextBlock Text="до"/>
+                        <TextBox Width="50" HorizontalAlignment="Left" Margin="5 2" x:Name="calorie_do_box"/>
+                    </StackPanel>
+                    <RadioButton Content="Все овощи и фрукты, у которых цвет желтый или красный"/>
+                </StackPanel>
+            </GroupBox>
+        </Grid>
+        <TextBlock Grid.Row="2" x:Name="information_db"/>
+    </Grid>
+</Window>
